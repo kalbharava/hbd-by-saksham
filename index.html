@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Birthday Surprise — Birthday-V3</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="cake.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Happy Birthday 🎉</h1>
+      <p class="subtitle">A small surprise — click the candle to blow the flame out</p>
+    </header>
+
+    <section class="content">
+      <!-- Existing project area (placeholder for original Birthday-V3 content) -->
+      <div class="card">
+        <h2>Birthday V3 Demo</h2>
+        <p>This demo merges the cake animation into your Birthday-V3 project.</p>
+
+        <!-- Cake area -->
+        <div class="cake-wrapper" id="cakeWrapper" aria-label="birthday cake">
+          <div class="cake" role="img" aria-hidden="true">
+            <div class="candle" id="candle" title="Click to blow out the candle"></div>
+            <div class="layer layer-top"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-bottom"></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="toggleBtn">Blow / Light Candle</button>
+          <button id="playMusic">Play Birthday Music</button>
+          <button id="stopMusic">Stop Music</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Made for GitHub — Birthday-V3 merged with cake animation</small>
+    </footer>
+  </main>
+
+  <audio id="bdayAudio" loop>
+    <source src="audio/happy-birthday.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Cake-specific styles and animations */
+.cake-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    animation: fadeIn 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 200px;
+    animation: cakeBounce 3s ease-in-out infinite;
+    transform-origin: center bottom;
+    user-select: none;
+}
+
+/* Layers (top to bottom) */
+.layer {
+    width: 220px;
+    height: 56px;
+    border-radius: 12px;
+    margin-top: -12px;
+    border: 3px solid #e75480;
+    opacity: 0;
+    animation: slideUp 1.4s ease-out forwards;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.45), inset 0 -8px 18px rgba(255,255,255,0.02);
+}
+
+/* Colors and staggered delays */
+.layer-top { background: linear-gradient(180deg,#ffd6e8,#ffb3d6); animation-delay: 0.6s; }
+.layer-middle { background: linear-gradient(180deg,#ffd1de,#ff9ecf); animation-delay: 0.35s; }
+.layer-bottom { background: linear-gradient(180deg,#ffb3c6,#ff94b1); animation-delay: 0.12s; }
+
+/* Candle */
+.candle {
+    width: 14px;
+    height: 48px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 6px;
+    position: absolute;
+    top: -58px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: candleFloat 3.2s ease-in-out infinite;
+    border:1px solid rgba(0,0,0,0.06);
+}
+
+/* Flame using pseudo-element */
+.candle::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    width: 16px;
+    height: 22px;
+    background: radial-gradient(circle at 35% 30%, #fff6a8 0%, #ffd24d 20%, #ff8c00 60%, transparent 61%);
+    border-radius: 50% 50% 45% 45%;
+    box-shadow:
+        0 0 10px rgba(255,140,0,0.9),
+        0 0 28px rgba(255,200,60,0.65),
+        0 0 54px rgba(255,160,40,0.28);
+    filter: blur(0.2px);
+    animation: flameFlicker 0.22s infinite alternate;
+}
+
+/* When candle is "out" (toggled) */
+.candle.out::after{
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6);
+    box-shadow: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cakeBounce {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.01); }
+}
+
+@keyframes candleFloat {
+    0%,100% { transform: translate(-50%,0); }
+    50% { transform: translate(-50%, -6px); }
+}
+
+@keyframes flameFlicker {
+    0% { transform: translateX(-50%) scale(0.95); opacity: 0.9; filter: blur(0.1px); }
+    100% { transform: translateX(-50%) scale(1.12); opacity: 1; filter: blur(0.0px); }
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,42 @@
+/* Basic layout and simple styling */
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #f973a6;
+  --muted: #94a3b8;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{
+  background: linear-gradient(180deg, #071028 0%, #0f1224 100%);
+  color: #e6eef8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+
+.app{width:100%;max-width:920px}
+.header{text-align:center;margin-bottom:18px}
+.header h1{font-size:2.1rem;margin:0}
+.subtitle{color:var(--muted);margin-top:6px}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.content{display:flex;justify-content:center}
+.controls{display:flex;gap:10px;justify-content:center;margin-top:14px}
+button{
+  background:linear-gradient(180deg,#111827,#0b1220);
+  border:1px solid rgba(255,255,255,0.06);
+  color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;
+}
+button:active{transform:translateY(1px)}
+.footer{text-align:center;margin-top:16px;color:var(--muted);font-size:13px}
